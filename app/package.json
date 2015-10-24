@@ -1,17 +1,18 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "identifier": "com.example.electron-boilerplate",
-  "description": "Starter for your Electron application. Out of the box ready for serious stuff.",
+  "name": "Popom",
+  "productName": "Popom",
+  "description": "Track your map runs in Path of Exile.",
   "version": "0.1.0",
-  "author": "Mr Gumby <gumby@sillywalks.com>",
+  "author": "niuage <niuage@gmail.com>",
   "main": "background.js",
   "config": {
     "target": "development"
   },
   "dependencies": {
+    "backbone.radio": "^1.0.2",
     "fs-jetpack": "^0.7.0",
     "readline": "^1.1.0",
-    "text-file-follower": "^0.1.0"
+    "text-file-follower": "^0.1.0",
+    "underscore": "^1.8.3"
   }
 }

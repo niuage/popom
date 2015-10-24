@@ -1,39 +1,12 @@
-// var os = require('os');
 var app = require('remote').require('app');
-// var jetpack = require('fs-jetpack').cwd(app.getAppPath());
+var env = window.env;
 
-// window.env contains data from config/env_XXX.json file.
-var envName = window.env.name;
 
-alert(app.getAppPath() + "/../resources/Client.txt")
+// var lala = require("./lib/popom").lala
 
-var follow = require('text-file-follower');
+// lala()
 
-var follower = follow(app.getAppPath() + "/../resources/Client.txt");
+import { Popom } from "./lib/popom"
+// var Popom = require("./lib/popom")
 
-follower.on('line', function(filename, line) {
-  console.log('Got a new line from '+filename+': '+line);
-});
-
-app.on('window-all-closed', function () {
-   follower.close();
-});
-
-// ... and then eventually:
-// follower.close();
-
-// var rl = require('readline').createInterface({
-//   input: require('fs').createReadStream(app.getAppPath() + "/../resources/Client.txt")
-// });
-
-// rl.on('line', function (line) {
-//   console.log('Line from file:', line);
-// });
-
-// var readLines = function() {
-//   console.log("mouhahah");
-
-//   setTimeout(readLines, 1000)
-// };
-
-// readLines();
+new Popom(env).start()
