@@ -2,5 +2,8 @@
   "name": "development",
   "title": "Path of Maps - dev",
   "description": "Add here any environment specific stuff you like.",
-  "logs_path": "/../resources/Client.txt"
+  "logs_path": "/../resources/Client.txt",
+  "api": {
+    "logs_url": "http://localhost:5000/logs"
+  }
 }

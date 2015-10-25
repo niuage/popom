@@ -10,28 +10,24 @@ import { API } from "./api"
 
 class Popom {
 
-  start() {
-    this.watcher().watch()
+  constructor() {
+    this.logChannel().on("new", function(log) {
+      var log = new Log(log)
+      if (!log.isValid()) { return; }
 
-    radio.channel('log').on({
-      new: function(log) {
-        var log = new Log(log)
-        if (!log.isValid()) { return; }
-
-        API.send(log)
-      }
-    })
+      API.send(log)
+    });
 
     app.on('window-all-closed', _.bind(this.stop, this));
   }
 
-  stop() {
-    this.watcher().stop()
-  }
+  start() { this.watcher().watch(); }
+  stop()  { this.watcher().stop(); }
 
-  watcher() {
-    return(this._watcher || (this._watcher = new LogWatcher()))
-  }
+  watcher() { return this._watcher || (this._watcher = new LogWatcher()); }
+
+  logChannel() { return radio.channel('log'); }
+
 }
 
 export { Popom }

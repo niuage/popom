@@ -7,10 +7,7 @@
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ms: mt 7
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: medit: name hahaha!
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me: name hahaha!
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ma: abort
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ma: abort2222
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ma: 333
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: yeees
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: yeees
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: yeees
-2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: yeees
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ms:
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me:
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me:
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me: name hahaha!

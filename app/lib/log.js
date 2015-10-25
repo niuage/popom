@@ -1,8 +1,18 @@
 'use strict';
 
+// import { LogParser } from
+
 class Log {
   constructor(log) {
-    this._log = log
+    this.log = log
+  }
+
+  toJSON() {
+    return {};
+  }
+
+  toS() {
+    return this.log;
   }
 
   isValid() {
