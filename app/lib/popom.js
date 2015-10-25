@@ -21,7 +21,7 @@ class Popom {
     app.on('window-all-closed', _.bind(this.stop, this));
   }
 
-  start() { this.watcher().watch(); }
+  start() { this.watcher().start(); }
   stop()  { this.watcher().stop(); }
 
   watcher() { return this._watcher || (this._watcher = new LogWatcher()); }

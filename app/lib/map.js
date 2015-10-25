@@ -15,7 +15,9 @@ class Map {
   encode() {
     if (!this.isValid()) { return null; }
 
-    return window.btoa(this.mapData);
+    encoded_map = window.btoa(this.mapData);
+    console.log("encoded map: ", encoded_map);
+    return encoded_map;
   }
 }
 
