@@ -3,9 +3,12 @@
 class Map {
   constructor(mapData) {
     this.mapData = mapData;
+    console.log this.mapData;
   }
 
   isValid() {
+    if (!this.mapData) { return false; } 
+    
     return(
       this.mapData.includes("Rarity:") &&
       this.mapData.includes("Travel to this Map")
