@@ -1,3 +1,6 @@
+var $ = require('jquery');
 import { Popom } from "./lib/popom"
 
-new Popom().start()
+$(function() {
+  new Popom().start();
+});

@@ -5,28 +5,24 @@ var radio = require('backbone.radio');
 var _ = require('underscore');
 
 import { LogWatcher } from "./log_watcher"
-import { Log } from "./log"
-import { API } from "./api"
+import { LogSender } from "./log_sender"
+import { LogNotifier } from "./log_notifier"
 
 class Popom {
 
-  constructor() {
-    this.logChannel().on("new", function(log) {
-      var log = new Log(log)
-      if (!log.isValid()) { return; }
-
-      API.send(log)
-    });
+  start() {
+    this.watcher().start();
+    this.sender().start();
+    this.notifier().start();
 
     app.on('window-all-closed', _.bind(this.stop, this));
   }
 
-  start() { this.watcher().start(); }
-  stop()  { this.watcher().stop(); }
+  stop() { radio.channel("app").trigger("stop"); }
 
-  watcher() { return this._watcher || (this._watcher = new LogWatcher()); }
-
-  logChannel() { return radio.channel('log'); }
+  notifier()  { return this._notifier  || (this._notifier  = new LogNotifier()); }
+  sender()    { return this._sender    || (this._sender    = new LogSender()); }
+  watcher()   { return this._watcher   || (this._watcher   = new LogWatcher()); }
 
 }
 

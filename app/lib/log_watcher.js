@@ -10,7 +10,12 @@ var _ = require('underscore')
 class LogWatcher {
   start() {
     this.refreshLogsPeriodically();
+    this.watchLogs();
 
+    radio.channel("app").on("stop", _.bind(this.stop, this));
+  }
+
+  watchLogs() {
     this.follower().on('line', function(fn, log) {
       radio.channel('log').trigger("new", log)
     });
@@ -21,9 +26,10 @@ class LogWatcher {
     this.stopWatching();
   }
 
+  // forces the log file to update every few seconds
   refreshLogsPeriodically() {
     touch(this.logsPath(), { nocreate: true });
-    this.currentTimeout = setTimeout(_.bind(this.refreshLogsPeriodically, this), 4000);
+    this.currentTimeout = setTimeout(_.bind(this.refreshLogsPeriodically, this), this.refreshDelay());
   }
 
   // Log file watcher
@@ -48,9 +54,7 @@ class LogWatcher {
     );
   }
 
-  // Sends parsed logs to the PoM server,
-  // but only if they are sent by authorized characters (todo)
-  sendLog(log) { logger.sendLog(log) }
+  refreshDelay() { return 4000; }
 }
 
 export { LogWatcher }
