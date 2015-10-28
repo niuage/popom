@@ -3,6 +3,7 @@
 var env = window.env;
 var $ = require('jquery');
 var _ = require('underscore');
+var radio = require('backbone.radio');
 var clipboard = require("copy-paste");
 
 import { Map } from "./map"
