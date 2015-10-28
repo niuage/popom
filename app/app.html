@@ -12,10 +12,22 @@
     <script src="app.js"></script>
 </head>
 <body>
+  <div class="top-bar">
+    <h1>Path of Maps</h1>
+  </div>
+
+  <div data-settings-form></div>
 
   <h2>Log monitoring</h2>
   <ul id="logs" data-logs="base">
     <li>Nothing logged yet.</li>
   </ul>
+
+  <script type="text/template" id="settings-form-template">
+    <form>
+      <input type="text" name="token" value="<%= token %>">
+      <input type="submit" value="Save">
+    </form>
+  </script>
 </body>
 </html>

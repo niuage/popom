@@ -7,15 +7,33 @@ var _ = require('underscore');
 import { LogWatcher } from "./log_watcher"
 import { LogSender } from "./log_sender"
 import { LogNotifier } from "./log_notifier"
+import { SettingsForm } from "./views/settings_form"
+import { Setting } from "./models/setting"
+import { Storage } from "./storage";
+window.storage = new Storage();
 
 class Popom {
-
   start() {
+    this.renderSettingsForm();
+
     this.watcher().start();
     this.sender().start();
     this.notifier().start();
 
+    radio.channel("settings").on({
+      "token:changed": function(token) {
+        console.log("exciting, bitch!", token)
+        storage.set("token", token);
+      }
+    })
+
     app.on('window-all-closed', _.bind(this.stop, this));
+  }
+
+  renderSettingsForm() {
+    var setting = new Setting();
+    var form = new SettingsForm({ model: setting });
+    form.render();
   }
 
   stop() { radio.channel("app").trigger("stop"); }

@@ -7,6 +7,10 @@ import { API } from "./api"
 import { Log } from "./log"
 
 class LogSender {
+  constructor() {
+    this.api = new API();
+  }
+
   start() {
     this.logChannel().on("new", _.bind(this.send, this));
   }
@@ -15,7 +19,7 @@ class LogSender {
     var log = new Log(log)
     if (!log.isValid()) { return; }
 
-    API.send(log)
+    this.api.send(log);
   }
 
   logChannel() { return radio.channel('log'); }
