@@ -4,7 +4,9 @@ var radio = require('backbone.radio');
 var _ = require('underscore');
 
 import { API } from "./api"
-import { Log } from "./log"
+
+// Listens to the log channel, and send any valid log
+// to the server
 
 class LogSender {
   constructor() {
@@ -16,8 +18,7 @@ class LogSender {
   }
 
   send(log) {
-    var log = new Log(log)
-    if (!log.isValid()) { return; }
+    if (!log.isValid()) return;
 
     this.api.send(log);
   }

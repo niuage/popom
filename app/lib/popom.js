@@ -21,9 +21,13 @@ class Popom {
     this.notifier().start();
 
     radio.channel("settings").on({
-      "token:changed": function(token) {
-        console.log("exciting, bitch!", token)
+      "change:token": function(token) {
+        console.log("token changed:", token)
         storage.set("token", token);
+      },
+      "change:characters": function(characters) {
+        console.log("characters changed:", characters)
+        storage.set("characters", characters);
       }
     })
 

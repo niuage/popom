@@ -7,6 +7,11 @@ var path = require('path');
 var touch = require('touch')
 var _ = require('underscore')
 
+import { Log } from "./log"
+
+// remove
+window.Log = Log
+
 class LogWatcher {
   start() {
     this.refreshLogsPeriodically();
@@ -17,7 +22,7 @@ class LogWatcher {
 
   watchLogs() {
     this.follower().on('line', function(fn, log) {
-      radio.channel('log').trigger("new", log)
+      radio.channel('log').trigger("new", new Log(log))
     });
   }
 

@@ -10,20 +10,18 @@ class LogNotifier {
   }
 
   start() {
-    this.displayNewLogs();
-    this.displayErrors();
-  }
+    radio.channel("log").on("new",
+      _.bind(this.display, this)
+    );
 
-  displayNewLogs() {
-    radio.channel("log").on("new", _.bind(this.display, this));
-  }
-
-  displayErrors() {
-    radio.channel("errors").on("error", _.bind(this.displayError, this));
+    radio.channel("errors").on("error",
+      _.bind(this.displayError, this)
+    );
   }
 
   display(log) {
-    this.$logs.append(this.template()({ log: log }));
+    if (!log.isValid()) return;
+    this.$logs.append(this.template()({ log: log.toS() }));
   }
 
   displayError(error) {
