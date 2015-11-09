@@ -9,7 +9,6 @@ class Storage {
     this.kikou = "midu";
     this.data = null;
     this.dataFilePath = path.join(app.getPath('userData'), 'settings.json');
-    console.log(this.dataFilePath);
   }
 
   load() {

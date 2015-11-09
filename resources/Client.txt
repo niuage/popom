@@ -17,3 +17,12 @@
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me: name hahaha!
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: me: name hahaha!
 2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: ms: iq20 name one
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple
+2015/10/15 20:44:05 2604265 287 [INFO Client 3304] #RikAndMorty: > start name temple

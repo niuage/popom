@@ -12,8 +12,6 @@ class API {
   constructor() {}
 
   send(log) {
-    console.log("sending log! " + log.toS())
-
     if (!this.isAuthorized()) return this.unauthorized();
 
     clipboard.paste(_.bind(function(clipboard, cp_content) {
