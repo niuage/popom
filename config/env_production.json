@@ -2,8 +2,8 @@
   "name": "production",
   "title": "Path of Maps",
   "description": "Add here any environment specific stuff you like.",
-  "logs_path": ["C:", "Program Files", "Grinding Gear Games", "logs", "Client.txt"],
+  "logs_path": ["C:", "Program Files", "Grinding Gear Games", "Path of Exile", "logs", "Client.txt"],
   "api": {
-    "logs_url": "http://pathofmaps.herokuapp.com/logs"
+    "logs_url": "http://pathofmaps.com/logs"
   }
 }
