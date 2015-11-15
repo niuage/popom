@@ -3,6 +3,7 @@
 var app = require('remote').require('app');
 var radio = require('backbone.radio');
 var _ = require('underscore');
+var $ = require('jquery');
 
 import { LogWatcher } from "./log_watcher"
 import { LogSender } from "./log_sender"

@@ -3,10 +3,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: #6A61B9;
 }
 
 body {
   font-family: sans-serif;
+  color: white;
 }
 
 a {
@@ -22,9 +24,8 @@ a {
 }
 
 .top-bar {
+  background: rgba(0, 0, 0, 0.15);
   padding: 0.5em 1em;
-  background: #6A61B9;
-  box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.25), 0px 1px 0px rgba(0, 0, 0, 0.15);
 
   h1 {
     font-size: 16px;
@@ -35,4 +36,65 @@ a {
 
 form {
   padding: 1em;
+}
+
+.flexboard {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.col {
+  padding: 1em;
+}
+
+.col-3 {
+  flex-grow: 1;
+  max-width: 25%;
+}
+
+.col-9 {
+  flex-grow: 3;
+  max-width: 75%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  margin-bottom: 2em;
+  width: 100%;
+  font-size: 0.875em;
+}
+
+input[type="text"] {
+  height: 2em;
+}
+
+
+textarea {
+  height: 4em;
+}
+
+.hint {
+  font-size: 0.825em
+}
+
+.log {
+  background: #e2e2e2;
+  border-radius: 3px;
+  padding: 1em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.log.error {
+  color: red;
+}
+
+#logs {
+  list-style-type: none;
+  padding: 0;
 }

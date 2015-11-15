@@ -16,20 +16,35 @@
     <h1>Path of Maps</h1>
   </div>
 
-  <div data-settings-form></div>
+  <div class="flexboard">
+    <div class="col col-3">
+      <div data-settings-form></div>
+    </div>
 
-  <h2>Log monitoring</h2>
-  <ul id="logs" data-logs="base">
-    <li>Nothing logged yet.</li>
-  </ul>
+    <div class="col col-9">
+      <h2>Log monitoring</h2>
+      <ul id="logs" data-logs="base">
+        <li>Nothing logged yet.</li>
+        <li class="log">
+          sending blalblewlewlgwe
+        </li>
+
+        <li class="log error">
+          sending blalblewlewlgwe
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <script type="text/template" id="settings-form-template">
     <form>
-      <input type="text" name="token" value="<%= token %>">
+      <label>Auth Token</label>
+      <p class="hint">Get your token on pathofmaps.com.</p>
+      <input type="text" name="token" value="<%= token %>" placeholder="Enter your auth token here">
 
-      <textarea><%= characters %></textarea>
-
-      <input type="submit" value="Save">
+      <label>Charater names</label>
+      <p class="hint">Only the commands sent from these characters will be sent to pathofmaps.com.</p>
+      <textarea placeholder="Enter your character names, one on each line"><%= characters %></textarea>
     </form>
   </script>
 </body>

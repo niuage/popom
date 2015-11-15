@@ -32,7 +32,7 @@ class LogNotifier {
     if (this._template) { return this._template; }
 
     return(this._template = _.template(
-      "<li>\
+      "<li class='log'>\
       Sending: <%= log %>\
       </li>"
     ));
@@ -42,7 +42,7 @@ class LogNotifier {
     if (this._errorTemplate) { return this._errorTemplate; }
 
     return(this._errorTemplate = _.template(
-      "<li>\
+      "<li class='error log'>\
       Error: <%= error %>\
       </li>"
     ));
