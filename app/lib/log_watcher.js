@@ -14,7 +14,6 @@ import { Log } from "./log"
 class LogWatcher {
   constructor() {
     radio.channel("settings").on("change:logs_path", _.bind(function(logsPath) {
-      console.log(logsPath)
       try {
         fs.lstatSync(logsPath);
         this.start(logsPath);
@@ -27,6 +26,8 @@ class LogWatcher {
 
   start(logsPath) {
     this.stop();
+
+    radio.channel("logs").trigger("watch:start");
 
     this.setLogsFile(logsPath);
 
@@ -46,6 +47,8 @@ class LogWatcher {
 
   stop() {
     if (!this.started) return;
+
+    radio.channel("logs").trigger("watch:stop");
 
     this.stopRefreshing();
     this.stopWatching();

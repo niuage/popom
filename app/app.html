@@ -40,7 +40,14 @@
       <p class="hint">Only the commands sent from these characters will be sent to pathofmaps.com.</p>
       <textarea placeholder="Enter your character names, one on each line"><%= characters %></textarea>
 
-      <label>Path to PoE logs (Client.txt)</label>
+      <label>
+        Path to PoE logs (Client.txt)
+        <% if (validLogPath) { %>
+          <span class="check valid"></span>
+        <% } else { %>
+          <span class="check invalid"></span>
+        <% } %>
+      </label>
       <p class="hint">
         Full path of the Client.txt log file.
       </p>

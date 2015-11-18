@@ -3,7 +3,6 @@
 class Map {
   constructor(mapData) {
     this.mapData = mapData;
-    console.log(this.mapData);
   }
 
   isValid() {
