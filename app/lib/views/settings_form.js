@@ -9,16 +9,15 @@ var SettingsForm = Backbone.View.extend({
   el: "[data-settings-form]",
 
   events: {
-    "keyup input": "tokenChanged",
-    "paste input": "tokenChanged",
+    "keyup [data-token-input]": "tokenChanged",
+    "paste [data-token-input]": "tokenChanged",
     "keyup textarea": "charactersChanged",
-    "paste textarea": "charactersChanged"
+    "paste textarea": "charactersChanged",
+    "keyup [data-logs-path-input]": "logsPathChanged",
+    "paste [data-logs-path-input]": "logsPathChanged"
   },
 
   initialize: function(options) {
-    this.listenTo(this.model, "change:token", this.notifyTokenChanged, this);
-    this.listenTo(this.model, "change:characters", this.notifyCharactersChanged, this);
-
     this.render();
   },
 
@@ -32,20 +31,21 @@ var SettingsForm = Backbone.View.extend({
     this.timeout = setTimeout(_.bind(this.setCharacters, this), 200);
   },
 
+  logsPathChanged: function() {
+    if (this.timeout) { clearTimeout(this.timeout); }
+    this.timeout = setTimeout(_.bind(this.setLogsPath, this), 1000);
+  },
+
   setToken: function() {
-    this.model.set("token", this.tokenField().val());
+    this.model.set("token", this.$el.find("[data-token-input]").val());
   },
 
   setCharacters: function() {
-    this.model.set("characters", this.characterTextarea().val());
+    this.model.set("characters", this.$el.find("textarea").val());
   },
 
-  notifyTokenChanged: function() {
-    radio.channel("settings").trigger("change:token", this.model.get("token"));
-  },
-
-  notifyCharactersChanged: function() {
-    radio.channel("settings").trigger("change:characters", this.model.get("characters"));
+  setLogsPath: function() {
+    this.model.set("logs_path", this.$el.find("[data-logs-path-input]").val());
   },
 
   template: function() {
@@ -55,16 +55,6 @@ var SettingsForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template()(this.model.toJSON()));
-  },
-
-  tokenField: function() {
-    return(this.$el.find("input"));
-    // caching the field also caches the val(), that's unexpected...
-    // return(this._tokenField || (this._tokenField = this.$el.find("input")))
-  },
-
-  characterTextarea: function() {
-    return(this.$el.find("textarea"));
   }
 })
 

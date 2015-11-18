@@ -15,22 +15,26 @@ window.storage = new Storage();
 
 class Popom {
   start() {
-    this.renderSettingsForm();
-
-    this.watcher().start();
+    this.watcher();
     this.sender().start();
     this.notifier().start();
 
-    radio.channel("settings").on({
-      "change:token": function(token) {
-        console.log("token changed:", token)
-        storage.set("token", token);
-      },
-      "change:characters": function(characters) {
-        console.log("characters changed:", characters)
-        storage.set("characters", characters);
-      }
-    })
+    this.renderSettingsForm();
+
+    // radio.channel("settings").on({
+    //   "change:token": function(token) {
+    //     console.log("token changed:", token)
+    //     storage.set("token", token);
+    //   },
+    //   "change:characters": function(characters) {
+    //     console.log("characters changed:", characters)
+    //     storage.set("characters", characters);
+    //   },
+    //   "change:logs_path": function(logs_path) {
+    //     console.log("logs_path changed:", logs_path)
+    //     ;
+    //   },
+    // })
 
     app.on('window-all-closed', _.bind(this.stop, this));
   }

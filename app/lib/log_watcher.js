@@ -6,18 +6,36 @@ var radio = require('backbone.radio');
 var path = require('path');
 var touch = require('touch')
 var _ = require('underscore')
+var follow = require('text-file-follower');
+var fs = require('fs');
 
 import { Log } from "./log"
 
-// remove
-window.Log = Log
-
 class LogWatcher {
-  start() {
+  constructor() {
+    radio.channel("settings").on("change:logs_path", _.bind(function(logsPath) {
+      console.log(logsPath)
+      try {
+        fs.lstatSync(logsPath);
+        this.start(logsPath);
+      }
+      catch(e) {
+        this.stop();
+      }
+    }, this))
+  }
+
+  start(logsPath) {
+    this.stop();
+
+    this.setLogsFile(logsPath);
+
     this.refreshLogsPeriodically();
     this.watchLogs();
 
     radio.channel("app").on("stop", _.bind(this.stop, this));
+
+    this.started = true
   }
 
   watchLogs() {
@@ -27,36 +45,38 @@ class LogWatcher {
   }
 
   stop() {
+    if (!this.started) return;
+
     this.stopRefreshing();
     this.stopWatching();
+    this.logFile = null;
+
+    this.started = false;
   }
 
   // forces the log file to update every few seconds
   refreshLogsPeriodically() {
-    touch(this.logsPath(), { nocreate: true });
+    touch(this.logsFile, { nocreate: true });
     this.currentTimeout = setTimeout(_.bind(this.refreshLogsPeriodically, this), this.refreshDelay());
   }
 
   // Log file watcher
   follower() {
     if (this._follower) { return this._follower; }
-
-    var follow = require('text-file-follower');
-    return (this._follower = follow(this.logsPath()));
+    return (this._follower = follow(this.logsFile));
   }
 
   stopRefreshing() {
     if (this.currentTimeout) { clearTimeout(this.currentTimeout) }
   }
 
-  stopWatching() { this.follower().close(); }
+  stopWatching() {
+    this.follower().close();
+    this._follower = null
+  }
 
-  // Path to the log file on the user machine
-  logsPath() {
-    return (
-      this._logsPath ||
-      (this._logsPath = path.resolve.apply(this, env.logs_path))
-    );
+  setLogsFile(logsPath) {
+    this.logsFile = path.resolve(logsPath)
   }
 
   refreshDelay() { return 4000; }

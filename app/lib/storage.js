@@ -6,7 +6,6 @@ var path = require('path');
 
 class Storage {
   constructor() {
-    this.kikou = "midu";
     this.data = null;
     this.dataFilePath = path.join(app.getPath('userData'), 'settings.json');
   }
