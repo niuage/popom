@@ -40,14 +40,14 @@
       <p class="hint">Only the commands sent from these characters will be sent to pathofmaps.com.</p>
       <textarea placeholder="Enter your character names, one on each line"><%= characters %></textarea>
 
-      <label>Path to PoE logs folder</label>
+      <label>Path to PoE logs (Client.txt)</label>
       <p class="hint">
-        Folder that contains the game logs (Client.txt).
+        Full path of the Client.txt log file.
       </p>
       <input type="text" name="logs_path" value="<%= logs_path %>" placeholder="Logs folder path" data-logs-path-input>
       <p class="hint">
-        Ex 1: 'C:\Program Files\Grinding Gear Games\Path of Exile\logs'
-        <br><br>Ex 2: 'C:\Steam\steamapps\common\Path of Exile\logs'
+        Ex 1: 'C:\Program Files\Grinding Gear Games\Path of Exile\logs\Client.txt'
+        <br><br>Ex 2: 'C:\Steam\steamapps\common\Path of Exile\logs\Client.txt'
       </p>
     </form>
   </script>
