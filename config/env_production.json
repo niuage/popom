@@ -1,8 +1,7 @@
 {
   "name": "production",
   "title": "Path of Maps",
-  "description": "Add here any environment specific stuff you like.",
-  "logs_path": ["C:", "Program Files", "Grinding Gear Games", "Path of Exile", "logs", "Client.txt"],
+  "description": "Path of Maps",
   "api": {
     "logs_url": "http://pathofmaps.com/logs"
   }
