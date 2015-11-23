@@ -24,6 +24,7 @@ class API {
       dataType: "json",
       data: {
         token: token,
+        version: env.version,
         log: {
           command: log.toS(),
           map: map.encode()

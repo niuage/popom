@@ -9,8 +9,7 @@ class Map {
     if (!this.mapData) { return false; }
 
     return(
-      this.mapData.includes("Rarity:") &&
-      this.mapData.includes("Travel to this Map")
+      this.mapData.includes("Rarity:")
     )
   }
 
