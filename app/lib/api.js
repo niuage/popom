@@ -15,7 +15,7 @@ class API {
     if (!this.isAuthorized()) return this.unauthorized();
 
     var cpContent = clipboard.readText();
-    var map = new Map(cp_content);
+    var map = new Map(cpContent);
     var token = this.token();
 
     $.ajax({
