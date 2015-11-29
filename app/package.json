@@ -2,7 +2,7 @@
   "name": "Popom",
   "productName": "Popom",
   "description": "Track your map runs in Path of Exile.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "niuage <niuage@gmail.com>",
   "main": "background.js",
   "config": {
