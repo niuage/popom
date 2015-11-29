@@ -82,7 +82,7 @@ class LogWatcher {
     this.logsFile = path.resolve(logsPath)
   }
 
-  refreshDelay() { return 4000; }
+  refreshDelay() { return 2000; }
 }
 
 export { LogWatcher }
